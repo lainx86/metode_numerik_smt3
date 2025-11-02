@@ -3,4 +3,4 @@
 
 ## Soal nomor 2 belum yh
 
-feby
+feby, tapi pake bantuan AI hehe
