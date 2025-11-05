@@ -1,7 +1,7 @@
 clear ; clc ; close all
-n = input('Masukkan jumlah persamaan dalam sistem persamaan linear =   ') ;
-C = input('Masukkan eleman matriks C = ') ;
-r = input('Masukkan elemen matriks b = ');
+n = 3;
+C = [2 -7 4; 1 9 -6; -3 8 5];
+r = [9; 1; 6];
 
 for k = 1 : n-1
     temp = 1 / C(k,k);
@@ -31,5 +31,5 @@ for i = 1: n-1
     x(n-i) = r(n-i) - sum;
 end
 
-disp('Nilai x = ');
+disp('Nilai x1, x2, x3 = ');
 disp(x);
