@@ -1,7 +1,7 @@
 clear ; clc ; close all
-n = input('Please Enter the size of the equation system  n =   ') ;
-C = input('Please Enter the elements of the Matrix C ') ;
-r = input('Please Enter the elements of the Matrix b ') ;
+n = input('Masukkan jumlah persamaan dalam sistem persamaan linear =   ') ;
+C = input('Masukkan eleman matriks C = ') ;
+r = input('Masukkan elemen matriks b = ');
 
 for k = 1 : n-1
     temp = 1 / C(k,k);
