@@ -19,7 +19,9 @@ for t = 1:50
         x_new(i) = temp / C(i,i);
     end
 
-    if (x_new - x) < e
+    galat = max(abs(x_new - x));
+    fprintf('%-8d  %-10.6f  %-10.6f  %-10.6f  %-10.6f\n', t, x_new(1), x_new(2), x_new(3), galat);
+    if galat < e
         tmax = t + 1;
         break
     end

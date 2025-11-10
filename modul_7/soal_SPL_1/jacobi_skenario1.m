@@ -8,6 +8,9 @@ x = zeros(3, 1);
 x_new = zeros(n,1);
 tmax = 0;
 
+disp('Iterasi   x1          x2          x3          Galat Maks');
+disp('---------------------------------------------------------');
+
 for t = 1:50
     for i = 1:n
         temp = r(i);
@@ -19,7 +22,9 @@ for t = 1:50
         x_new(i) = temp / C(i,i);
     end
 
-    if (x_new - x) < e
+    galat = max(abs(x_new - x));
+    fprintf('%-8d  %-10.6f  %-10.6f  %-10.6f  %-10.6f\n', t, x_new(1), x_new(2), x_new(3), galat);
+    if galat < e
         tmax = t + 1;
         break
     end
