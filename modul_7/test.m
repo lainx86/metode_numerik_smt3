@@ -1,0 +1,1 @@
+% file ini digunakan untuk mengetes skrip saja
