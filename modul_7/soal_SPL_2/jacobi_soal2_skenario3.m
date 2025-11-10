@@ -8,6 +8,9 @@ x = [2;3;5];
 x_new = zeros(n,1);
 tmax = 0;
 
+disp('Iterasi   x1          x2          x3          Galat Maks');
+disp('---------------------------------------------------------');
+
 for t = 1:50
     for i = 1:n
         temp = r(i);
