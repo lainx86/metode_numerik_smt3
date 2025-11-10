@@ -1,1 +1,1 @@
-% file ini digunakan untuk mengetes skrip saja
+% file ini dibiarkan kososng dan hanya digunakan jika mengetes skrip saja
