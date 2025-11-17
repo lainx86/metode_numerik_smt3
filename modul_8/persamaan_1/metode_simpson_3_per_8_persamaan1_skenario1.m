@@ -79,5 +79,5 @@ title({['Simpson 3/8'], ...
        ['Sum = ' num2str(sum, '%.4f') ' | Error: ' num2str(err_rel, '%.10f') '%']});
 xlabel('x'); ylabel('f(x)'); grid on;
 xlim([a-0.2, b+0.2]);
-legend([h_curve, h_fill], {'Kurva Eksak', 'Aproksimasi Kubik'}, 'Location', 'northwest');
+legend([h_curve, h_fill], {'Kurva Eksak', 'Aproksimasi'}, 'Location', 'northwest');
 hold off;

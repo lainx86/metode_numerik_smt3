@@ -2,7 +2,7 @@ clear; clc; close all;
 
 f = @(x) x.^4 + 2*x.^3 - 4 * x.^2 +3*x +5;
 
-disp('--- Program Integral Simpson 1/3 Sesuai Flowchart ---');
+disp('--- Program Integral Simpson 1/3 ---');
 
 a = 1;
 b = 2;
@@ -59,7 +59,7 @@ err_abs = abs(val_exact - sum);
 err_rel = (err_abs / abs(val_exact)) * 100;
 
 fprintf('------------------------------------------------------------------------\n');
-fprintf('\nHASIL AKHIR (Sesuai Flowchart):\n');
+fprintf('\nHASIL AKHIR:\n');
 fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
 fprintf('2. Numerik          : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.10f %%\n', err_rel);

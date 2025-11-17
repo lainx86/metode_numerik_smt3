@@ -2,7 +2,7 @@ clear; clc; close all;
 
 f = @(x) x.^3 - 3 * x.^2 + x + 2 * sin(x);
 
-disp('--- Program Integral Simpson 1/3 Sesuai Flowchart ---');
+disp('--- Program Integral Simpson 1/3 ---');
 
 a = 0;
 b = pi/4;

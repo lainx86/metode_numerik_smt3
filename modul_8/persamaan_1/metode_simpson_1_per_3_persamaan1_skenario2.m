@@ -2,7 +2,7 @@ clear; clc; close all;
 
 f = @(x) 2*x.^3 + 6*x.^2 - x + 4;
 
-disp('--- Program Integral Simpson 1/3 Sesuai Flowchart ---');
+disp('--- Program Integral Simpson 1/3 ---');
 
 a = 1;
 b = 3;
@@ -59,7 +59,7 @@ err_abs = abs(val_exact - sum);
 err_rel = (err_abs / abs(val_exact)) * 100;
 
 fprintf('------------------------------------------------------------------------\n');
-fprintf('\nHASIL AKHIR (Sesuai Flowchart):\n');
+fprintf('\nHASIL AKHIR:\n');
 fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
 fprintf('2. Numerik          : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.10f %%\n', err_rel);
@@ -68,5 +68,5 @@ title({['Simpson 1/3'], ...
        ['Sum = ' num2str(sum, '%.4f') ' | Error: ' num2str(err_rel, '%.10f') '%']});
 xlabel('x'); ylabel('f(x)'); grid on;
 xlim([a-0.2, b+0.2]);
-legend([h_curve, h_fill], {'Kurva Eksak', 'Aproksimasi Parabola'}, 'Location', 'northwest');
+legend([h_curve, h_fill], {'Kurva Eksak', 'Aproksimasi'}, 'Location', 'northwest');
 hold off;
