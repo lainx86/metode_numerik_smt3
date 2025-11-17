@@ -58,7 +58,7 @@ fprintf('2. Numerik   : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.4f %%\n', err_rel);
 
 title({['Sum = ' num2str(sum, '%.4f')], ...
-       ['Error: ' num2str(err_rel, '%.2f') '%']});
+       ['Error: ' num2str(err_rel, '%.4f') '%']});
 
 xlabel('x'); ylabel('f(x)'); grid on;
 xlim([a-0.2, b+0.2]); 
