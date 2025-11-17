@@ -2,3 +2,4 @@
 ## NIM: 26050124130087
 ## Kelas: Oseanografi C
 ## PJ: Kak Asti
+# Modul 8 Praktikum Metode Numerik
