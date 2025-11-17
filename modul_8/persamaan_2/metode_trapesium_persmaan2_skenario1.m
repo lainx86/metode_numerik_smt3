@@ -1,11 +1,12 @@
-clear all; clc;
+clear; clc; close all;
 
 f = @(x) x.^4 + 2*x.^3 - 4 * x.^2 +3*x +5;
 
 disp('--- Program Integral Trapesium ---');
-a = 1; % Batas bawah
-b = 4; % Batas atas
-n = input("Masukkan nilai n: ");
+a = 1; % batas bawah
+b = 4; % batas atas
+n = input('Masukkan jumlah sub-interval (n): ');
+
 dx = (b - a) / n;
 sum = 0;   
 c1 = a;    
@@ -53,11 +54,11 @@ err_rel = (err_abs / abs(val_exact)) * 100;
 fprintf('-------------------------------------------------------------\n');
 fprintf('\nHASIL AKHIR:\n');
 fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
-fprintf('2. Numerik (sum)    : %.6f\n', sum);
+fprintf('2. Numerik   : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.4f %%\n', err_rel);
 
 title({['Sum = ' num2str(sum, '%.4f')], ...
-       ['Error: ' num2str(err_rel, '%.2f') '%']});
+       ['Error: ' num2str(err_rel, '%.4f') '%']});
 
 xlabel('x'); ylabel('f(x)'); grid on;
 xlim([a-0.2, b+0.2]); 
