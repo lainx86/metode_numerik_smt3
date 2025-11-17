@@ -72,7 +72,7 @@ err_rel = (err_abs / abs(val_exact)) * 100;
 fprintf('------------------------------------------------------------------------------------------\n');
 fprintf('\nHASIL AKHIR SIMPSON 3/8:\n');
 fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
-fprintf('2. Numerik (sum)    : %.6f\n', sum);
+fprintf('2. Numerik          : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.10f %%\n', err_rel);
 
 title({['Simpson 3/8'], ...
