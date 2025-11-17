@@ -4,8 +4,8 @@ f = @(x) x.^3 - 3 * x.^2 + x + 2 * sin(x);
 
 disp('--- Program Integral Simpson 1/3 ---');
 
-a = 0;
-b = 1;
+a = 0; % Batas bawah
+b = 1; % Batas atas
 n = input('Masukkan n (harus genap): ');
 
 if mod(n, 2) ~= 0

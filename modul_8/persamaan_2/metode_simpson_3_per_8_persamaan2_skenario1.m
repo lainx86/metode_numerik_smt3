@@ -74,7 +74,7 @@ fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
 fprintf('2. Numerik          : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.10f %%\n', err_rel);
 
-title({['Simpson 3/8'], ...
+title({['Feby Syarief-0087-Ose C'],['Simpson 3/8'], ...
        ['Sum = ' num2str(sum, '%.4f') ' | Error: ' num2str(err_rel, '%.10f') '%']});
 xlabel('x'); ylabel('f(x)'); grid on;
 xlim([a-0.2, b+0.2]);
