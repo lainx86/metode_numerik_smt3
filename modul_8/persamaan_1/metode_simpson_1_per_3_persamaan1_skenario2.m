@@ -5,7 +5,7 @@ f = @(x) 2*x.^3 + 6*x.^2 - x + 4;
 disp('--- Program Integral Simpson 1/3 Sesuai Flowchart ---');
 
 a = 1;
-b = 5;
+b = 3;
 n = input('Masukkan n (harus genap): ');
 
 if mod(n, 2) ~= 0
