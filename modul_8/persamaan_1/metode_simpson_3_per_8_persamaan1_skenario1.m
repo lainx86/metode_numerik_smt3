@@ -8,7 +8,7 @@ b = 5;
 n = input('Masukkan n (harus kelipatan 3): ');
 
 if mod(n, 3) ~= 0
-    error('Error: Untuk Simpson 3/8, n harus kelipatan 3 (3, 6, 9, ...)!');
+    error('Error: Untuk Simpson 3/8, n harus kelipatan 3!');
 end
 
 dx = (b - a) / n;
