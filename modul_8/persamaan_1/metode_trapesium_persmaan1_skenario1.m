@@ -54,7 +54,7 @@ err_rel = (err_abs / abs(val_exact)) * 100;
 fprintf('-------------------------------------------------------------\n');
 fprintf('\nHASIL AKHIR:\n');
 fprintf('1. Eksak (Analitik) : %.6f\n', val_exact);
-fprintf('2. Numerik (sum)    : %.6f\n', sum);
+fprintf('2. Numerik   : %.6f\n', sum);
 fprintf('3. Error Relatif    : %.4f %%\n', err_rel);
 
 title({['Sum = ' num2str(sum, '%.4f')], ...
