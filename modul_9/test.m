@@ -19,9 +19,12 @@ for i = 1:n
     xi = X(i);
     yi = Y(i);
 
-    phi = f(xi, yi);
+    Y_absen(i) = f(xi, yi);
 
-    Y(i+1) = yi + phi *dx;
+    Y(i+1) = yi + f(xi, yi) *dx;
+    Y_absen(i+1) = f(xi+1, yi+1);
+    Y_absen = 1/2* (Y_absen(i) + Y_absen(i+1));
+    Y(i + 1) = Y(i) + Y_absen * dx;
     X(i+1) = xi + dx;
 end
 
@@ -33,11 +36,11 @@ for i = 1:length(X)
 end
 fprintf("--------------------------\n")
 
-fprintf("Hasil dari metode euler adalah: %.3f\n", Y(end));
+fprintf("Hasil dari metode Heun adalah: %.3f\n", Y(end));
 
 figure;
 plot(X, Y, '-o', 'LineWidth', 2, 'MarkerSize', 6);
-title(["Grafik Metode Euler dx/dy = x + y"], ["Feby Syarief A-0087-Ose C"]);
+title(["Grafik Metode Heun dx/dy = x + y"], ["Feby Syarief A-0087-Ose C"]);
 xlabel("delta x");
 ylabel("yi + 1");
 grid on;
