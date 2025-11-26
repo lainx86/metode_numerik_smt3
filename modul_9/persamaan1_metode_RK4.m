@@ -1,5 +1,3 @@
-% File ini hanya digunakan untuk mengetes skrip saja
-
 clear all; clc; close all;
 
 f = @(x, y) x+y;
