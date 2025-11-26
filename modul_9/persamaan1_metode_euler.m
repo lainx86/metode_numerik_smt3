@@ -27,11 +27,11 @@ fprintf("--------------------------\n")
 fprintf("Iterasi\t x\t\t y (euler)\n")
 fprintf("--------------------------\n")
 for i = 1:length(X)
-    fprintf("%d\t\t %.3f\t %.3f\n", i-1, X(i), Y(i));
+    fprintf("%d\t\t %.3f\t %.5f\n", i-1, X(i), Y(i));
 end
 fprintf("--------------------------\n")
 
-fprintf("Hasil dari metode euler adalah: %.3f\n", Y(end));
+fprintf("Hasil dari metode euler adalah: %.5f\n", Y(end));
 
 figure;
 plot(X, Y, '-o', 'LineWidth', 2, 'MarkerSize', 6);
