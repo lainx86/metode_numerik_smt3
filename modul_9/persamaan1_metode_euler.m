@@ -1,5 +1,3 @@
-% File ini hanya digunakan untuk mengetes skrip
-
 clear all; clc;
 
 f = @(x, y) x+y;
@@ -41,4 +39,3 @@ title(["Grafik Metode Euler dx/dy = x + y"], ["Feby Syarief A-0087-Ose C"]);
 xlabel("delta x");
 ylabel("yi + 1");
 grid on;
-
