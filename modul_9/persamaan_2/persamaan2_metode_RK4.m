@@ -44,6 +44,7 @@ for j = 1:length(dx_list)
     for m = 1:length(X)
         fprintf('%d\t\t %.2f\t %.5f\n', m-1, X(m), Y(m));
     end
+    fprintf('Nilai y saat x = %.1f adalah %.5f\n', X(end), Y(end));
     
     label_name = sprintf('\\Delta x = %.2f', h);
     plot(X, Y, markers{j}, 'Color', colors{j}, 'LineWidth', 1.5, ...
