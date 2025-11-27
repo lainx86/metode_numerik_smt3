@@ -27,7 +27,7 @@ for i = 0:n-1
     k1 = h * f(xi, yi);
     k2 = h * f(xi + 0.5 * h, yi + 0.5 * k1);
     k3 = h * f(xi + 0.5 * h, yi + 0.5 * k2);
-    k4 = h * f(xi + h, yi + k3);
+    k4 = h * f(xi + h, yi + k1);
     yi_plus_1 = yi + (k1 + 2 * k2 + 2 * k3 + k4)/6;
 
     xi_next = a + (i+1) * h;
