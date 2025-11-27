@@ -52,7 +52,7 @@ for k = 1:length(dx_list)
          'DisplayName', label_name, 'MarkerSize', 4);
 end
 
-title('Grafik Penyelesaian PDB: dy/dx = yx^2 - y');
+title(['Grafik Penyelesaian PDB Metode Euler dengan Variasi delta x: dy/dx = yx^2 - y'], ["Feby Syarief A-0087-Ose C"]);
 subtitle('Metode Euler dengan Variasi Step Size (\Delta x)');
 xlabel('Nilai x');
 ylabel('Nilai y');
