@@ -1,74 +1,69 @@
+% File ini hanay digunakan untuk mengetes skrip saja
 
-clear; clc; close all;
+clc; clear; close all;
 
-NIM = [0, 8, 7]; % NIM 087
+nim_str = '087';
+z_digit = str2double(nim_str(3));
+fprintf('NIM digit z = %d\n', z_digit);
 
-L = 3000;           % Panjang kanal (m)
-dx = 30;            % Lebar grid (m)
-T_total = 7200;     % Lama simulasi (detik)
-dt = 6;             % Langkah waktu (detik)
-G = 0.05;           % Koefisien difusi (m^2/detik)
-z = NIM(3);         % Digit terakhir NIM
+L = 3000;
+T_max = 7200;
+dt = 6;
 
-Source_Conc = 10 * z;      
-Source_Grid = 30 + z;       
+dx = 30;
+G = 0.05;
 
+grid_sumber = 30 + z_digit;
+C_source = 10 * z_digit;
+if C_source == 0, C_source = 10; end
 
-imax = round(L / dx);
-nmax = round(T_total / dt);
-
-C = zeros(nmax, imax); 
+Nx = round(L / dx) + 1;
+Nt = round(T_max / dt) + 1;
+x_vec = 0:dx:L;
+t_vec = 0:dt:T_max;
 
 alpha = (G * dt) / (dx^2);
+fprintf('Parameter: dx=%d, G=%.2f, Alpha=%.5f\n', dx, G, alpha);
 
-fprintf('Nilai Alpha: %.4f (Stabil jika <= 0.5)\n', alpha);
+C = zeros(Nx, Nt);
 
-for n = 1 : nmax - 1
-    C(n, Source_Grid) = Source_Conc; 
-    
-    for i = 2 : imax - 1
-        C(n+1, i) = C(n, i) + alpha * (C(n, i+1) - 2 * C(n, i) + C(n, i-1));
+for n = 1 : Nt-1
+    C(grid_sumber, n) = C_source;
+
+    for i = 2 : Nx-1
+        C(i, n+1) = C(i, n) + alpha * (C(i+1, n) - 2*C(i, n) + C(i-1, n));
     end
-    
-    C(n+1, 1) = 0;      
-    C(n+1, imax) = 0;
-    C(n+1, Source_Grid) = Source_Conc;
+
+    C(1, n+1) = 0;
+    C(Nx, n+1) = 0;
+
+    C(grid_sumber, n+1) = C_source;
 end
 
-x_vec = 0:dx:(imax-1)*dx;
-t_vec = 0:dt:(nmax-1)*dt;
+figure('Name', 'Skenario 1: Grafik Difusi', 'NumberTitle', 'off');
 
-figure(1);
-hold on;
-plot_times = round(linspace(1, nmax, 5));
-labels_time = {};
-
-for k = 1:length(plot_times)
-    t_idx = plot_times(k);
-    plot(x_vec, C(t_idx, :), 'LineWidth', 1.5);
-    labels_time{k} = sprintf('t = %.0f s', t_vec(t_idx));
+subplot(2, 1, 1); hold on;
+time_indices = round(linspace(1, Nt, 5));
+colors = lines(5);
+for k = 1:5
+    idx = time_indices(k);
+    plot(x_vec, C(:, idx), 'LineWidth', 1.5, 'Color', colors(k,:), ...
+        'DisplayName', sprintf('t = %d s', t_vec(idx)));
 end
-title(['Skenario 1: Konsentrasi Polutan terhadap Ruang (L=', num2str(L), ')']);
-xlabel('Jarak (meter)');
-ylabel('Konsentrasi (mg/l)');
-legend(labels_time);
-grid on;
-hold off;
+title('Skenario 1: Konsentrasi vs Ruang (Jarak)');
+xlabel('Jarak (m)'); ylabel('Konsentrasi (mg/l)');
+grid on; legend('Location', 'best'); hold off;
 
-target_grids = [Source_Grid, Source_Grid+5, Source_Grid+10, Source_Grid+20, Source_Grid+40];
-target_grids = target_grids(target_grids < imax);
-
-figure(2);
-hold on;
-labels_grid = {};
-for k = 1:length(target_grids)
-    g_idx = target_grids(k);
-    plot(t_vec, C(:, g_idx), 'LineWidth', 1.5);
-    labels_grid{k} = sprintf('Grid %d (x=%.0fm)', g_idx, x_vec(g_idx));
+subplot(2, 1, 2); hold on;
+grid_indices = [grid_sumber, grid_sumber+5, grid_sumber+10, grid_sumber+20, grid_sumber+40];
+grid_indices = grid_indices(grid_indices <= Nx);
+colors = lines(length(grid_indices));
+for k = 1:length(grid_indices)
+    idx = grid_indices(k);
+    pos_m = (idx-1) * dx;
+    plot(t_vec, C(idx, :), 'LineWidth', 1.5, 'Color', colors(k,:), ...
+        'DisplayName', sprintf('Grid %d (x = %d m)', idx, pos_m));
 end
-title('Skenario 1: Konsentrasi Polutan terhadap Waktu');
-xlabel('Waktu (detik)');
-ylabel('Konsentrasi (mg/l)');
-legend(labels_grid, 'Location', 'Southeast');
-grid on;
-hold off;
+title('Skenario 1: Konsentrasi vs Waktu');
+xlabel('Waktu (detik)'); ylabel('Konsentrasi (mg/l)');
+grid on; legend('Location', 'best'); hold off;
