@@ -9,7 +9,7 @@ dt = 6;
 G = 1;
 z = NIM(3); % Digit terakhir NIM
 
-Source_Conc = 10 * z;
+Source_Konsentarsi = 10 * z;
 Source_Grid = 15 + z;
 
 imax = round(L / dx);
@@ -21,13 +21,13 @@ alpha = (G * dt) / (dx^2);
 fprintf('Nilai Alpha: %.4f (Stabil jika <= 0.5)\n', alpha);
 
 for n = 1 : nmax - 1
-    C(n, Source_Grid) = Source_Conc;
+    C(n, Source_Grid) = Source_Konsentarsi;
     for i = 2 : imax - 1
         C(n+1, i) = C(n, i) + alpha * (C(n, i+1) - 2 * C(n, i) + C(n, i-1));
     end
     C(n+1, 1) = 0;
     C(n+1, imax) = 0;
-    C(n+1, Source_Grid) = Source_Conc;
+    C(n+1, Source_Grid) = Source_Konsentarsi;
 end
 
 x_vec = 0:dx:(imax-1)*dx;
