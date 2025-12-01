@@ -1,14 +1,14 @@
 
 clear; clc; close all;
 
-NIM = [0, 8, 7]; % NIM 087
+NIM = '087'; % (xyz) 3 digit nim terakhir dari 26050124130087
 
 L = 3000;
 dx = 30;
 T_total = 7200;
 dt = 6;
 G = 0.05;
-z = NIM(3);         % Digit terakhir NIM
+z = str2double(NIM(3)); % z (Digit terakhir NIM)
 
 Source_Konsentarsi = 10 * z;      
 Source_Grid = 30 + z;       
